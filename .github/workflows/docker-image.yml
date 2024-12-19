@@ -25,5 +25,12 @@ jobs:
         echo "Iniciando Login"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         echo "Finaaliza Login"
+    - name: Build Docker iamge
+      run: 
+        docker build -t diewow/docker-graaphql:0.0.2 .
+    - name: Push docker image
+      run:
+        docker push diewow/docker-graaphql:0.0.2
+        
   #   -  name: Build the Docker image
    #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
